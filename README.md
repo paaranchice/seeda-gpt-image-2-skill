@@ -19,12 +19,6 @@ Instead of asking users to navigate menus and docs first, this skill removes fri
 - **Campaign-ready behavior**  
   Works well for landing pages, demos, and SEO funnels where speed-to-first-result matters.
 
-## Launch Target
-
-When triggered, the skill opens this workspace in the default browser:
-
-- https://seeda.app/chatgpt-images-2
-
 ## What Users Can Do After Launch
 
 Based on the current page flow, users can:
@@ -38,7 +32,7 @@ Based on the current page flow, users can:
 ## How It Works
 
 1. **Trigger the skill**: user asks to launch GPT Image 2 generation.
-2. **Open workspace**: skill opens the launch target in the default browser.
+2. **Open workspace**: skill opens the creator workspace in the default browser.
 3. **Draft first**: user tests prompt and composition on still image output.
 4. **Scale to production**: user refines and proceeds to video handoff when ready.
 
@@ -57,17 +51,6 @@ Based on the current page flow, users can:
 2. Restart Claude Code and Codex.
 
 Detailed guide: `INSTALL.md`
-
-## FAQ
-
-**Q: Is this a full image API wrapper?**  
-A: No. This repository provides a launcher skill workflow for fast user entry.
-
-**Q: Why keep Launch Target explicit?**  
-A: It keeps behavior transparent and predictable for users and reviewers.
-
-**Q: Is this affiliated with OpenAI?**  
-A: No. This is an independent launcher skill.
 
 ## CTA
 
