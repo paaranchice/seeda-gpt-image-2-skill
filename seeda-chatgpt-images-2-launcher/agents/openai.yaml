@@ -1,0 +1,4 @@
+﻿version: 1
+display_name: Seeda GPT Image 2 Launcher
+short_description: Open the Seedance ChatGPT Images 2 page directly from a skill trigger.
+default_prompt: Open https://seeda.app/chatgpt-images-2 in my default browser.
