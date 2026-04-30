@@ -1,4 +1,6 @@
-﻿# GPT Image 2 Skill
+# GPT Image 2 Skill
+
+![GPT Image 2 Skill social preview](assets/social-preview.png)
 
 A Claude Code and Codex skill that opens a GPT Image 2 creator workflow in one trigger.
 
@@ -120,3 +122,7 @@ git -C ~/.codex/skills/seeda-chatgpt-images-2-launcher pull
 ```
 
 For full install and uninstall instructions, see `INSTALL.md`.
+
+## Social Preview
+
+Use `assets/social-preview.png` as the GitHub repository social preview image if you want Reddit and other link cards to look closer to a polished GitHub share card.
