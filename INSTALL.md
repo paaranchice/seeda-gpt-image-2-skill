@@ -1,53 +1,64 @@
-﻿# Skill Installation Guide (Claude Code + Codex)
+# GPT Image 2 Skill Installation
 
-This guide installs the same skill into:
+Install this skill into Claude Code, Codex, or both.
 
-- Claude Code (CC)
-- Codex
+## Skill Name
 
-## 1. Prerequisites
+`seeda-chatgpt-images-2-launcher`
 
-1. Git is installed.
-2. Claude Code is installed.
-3. Codex is installed.
-4. The skill folder contains `SKILL.md`.
+## Requirements
 
-## 2. Skill Paths
+1. Git installed
+2. Claude Code and/or Codex installed
+3. A default browser configured
 
-### Claude Code
+## Install with `git clone` (Recommended)
 
-- Windows: `C:\Users\<YourUser>\.claude\skills`
-- macOS/Linux: `~/.claude/skills`
+### macOS/Linux
 
-### Codex
+```bash
+mkdir -p ~/.claude/skills ~/.codex/skills
 
-- Windows: `C:\Users\<YourUser>\.codex\skills`
-- macOS/Linux: `~/.codex/skills`
-
-## 3. Install by Copy (Recommended)
-
-Assume target skill folder name is `seeda-chatgpt-images-2-launcher`.
-
-### Quick Start (Exact Upstream Flow)
-
-Create a folder named `seeda-chatgpt-images-2-launcher` in both locations:
-
-- `~/.claude/skills/`
-- `~/.codex/skills/`
-
-Then copy these items from this repo root into that folder:
-
-- `SKILL.md`
-- `agents/`
-- `references/`
-
-Then restart Claude Code and Codex.
+git clone https://github.com/paaranchice/gpt-image-2-skill ~/.claude/skills/seeda-chatgpt-images-2-launcher
+git clone https://github.com/paaranchice/gpt-image-2-skill ~/.codex/skills/seeda-chatgpt-images-2-launcher
+```
 
 ### Windows (PowerShell)
 
 ```powershell
-$SkillName = "seeda-chatgpt-images-2-launcher"
+New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.claude\skills" | Out-Null
+New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.codex\skills" | Out-Null
+
+git clone https://github.com/paaranchice/gpt-image-2-skill "$env:USERPROFILE\.claude\skills\seeda-chatgpt-images-2-launcher"
+git clone https://github.com/paaranchice/gpt-image-2-skill "$env:USERPROFILE\.codex\skills\seeda-chatgpt-images-2-launcher"
+```
+
+## Install from an Existing Clone
+
+Use this when you already have the repository on your machine.
+
+### macOS/Linux
+
+```bash
+REPO_PATH="/path/to/gpt-image-2-skill"
+SKILL_NAME="seeda-chatgpt-images-2-launcher"
+
+mkdir -p ~/.claude/skills/$SKILL_NAME ~/.codex/skills/$SKILL_NAME
+
+cp "$REPO_PATH/SKILL.md" ~/.claude/skills/$SKILL_NAME/SKILL.md
+cp -R "$REPO_PATH/agents" ~/.claude/skills/$SKILL_NAME/agents
+cp -R "$REPO_PATH/references" ~/.claude/skills/$SKILL_NAME/references
+
+cp "$REPO_PATH/SKILL.md" ~/.codex/skills/$SKILL_NAME/SKILL.md
+cp -R "$REPO_PATH/agents" ~/.codex/skills/$SKILL_NAME/agents
+cp -R "$REPO_PATH/references" ~/.codex/skills/$SKILL_NAME/references
+```
+
+### Windows (PowerShell)
+
+```powershell
 $RepoPath = "C:\path\to\gpt-image-2-skill"
+$SkillName = "seeda-chatgpt-images-2-launcher"
 
 $CcTarget = Join-Path $env:USERPROFILE ".claude\skills\$SkillName"
 $CodexTarget = Join-Path $env:USERPROFILE ".codex\skills\$SkillName"
@@ -64,32 +75,14 @@ Copy-Item -Recurse -Force (Join-Path $RepoPath "agents") (Join-Path $CodexTarget
 Copy-Item -Recurse -Force (Join-Path $RepoPath "references") (Join-Path $CodexTarget "references")
 ```
 
-### macOS/Linux
+## Restart
 
-```bash
-SKILL_NAME="seeda-chatgpt-images-2-launcher"
-REPO_PATH="/path/to/gpt-image-2-skill"
+1. Close Claude Code completely.
+2. Close Codex completely.
+3. Reopen the client you want to use.
+4. Trigger with `Launch my GPT Image 2 workspace`.
 
-mkdir -p ~/.claude/skills ~/.codex/skills
-mkdir -p ~/.claude/skills/$SKILL_NAME ~/.codex/skills/$SKILL_NAME
-
-cp "$REPO_PATH/SKILL.md" ~/.claude/skills/$SKILL_NAME/SKILL.md
-cp -R "$REPO_PATH/agents" ~/.claude/skills/$SKILL_NAME/agents
-cp -R "$REPO_PATH/references" ~/.claude/skills/$SKILL_NAME/references
-
-cp "$REPO_PATH/SKILL.md" ~/.codex/skills/$SKILL_NAME/SKILL.md
-cp -R "$REPO_PATH/agents" ~/.codex/skills/$SKILL_NAME/agents
-cp -R "$REPO_PATH/references" ~/.codex/skills/$SKILL_NAME/references
-```
-
-## 4. Verify
-
-### Windows
-
-```powershell
-Get-ChildItem "$env:USERPROFILE\.claude\skills\seeda-chatgpt-images-2-launcher"
-Get-ChildItem "$env:USERPROFILE\.codex\skills\seeda-chatgpt-images-2-launcher"
-```
+## Verify
 
 ### macOS/Linux
 
@@ -98,28 +91,45 @@ ls -la ~/.claude/skills/seeda-chatgpt-images-2-launcher
 ls -la ~/.codex/skills/seeda-chatgpt-images-2-launcher
 ```
 
-Restart Claude Code and Codex after installation.
-
-### Restart Checklist (Detailed)
-
-1. Close all Claude Code windows and running sessions.
-2. Close all Codex windows and running sessions.
-3. Reopen Claude Code.
-4. Reopen Codex.
-5. Run a trigger phrase such as `Launch my GPT Image 2 workspace`.
-
-## 5. Uninstall
-
-### Windows
+### Windows (PowerShell)
 
 ```powershell
-Remove-Item -Recurse -Force "$env:USERPROFILE\.claude\skills\seeda-chatgpt-images-2-launcher"
-Remove-Item -Recurse -Force "$env:USERPROFILE\.codex\skills\seeda-chatgpt-images-2-launcher"
+Get-ChildItem "$env:USERPROFILE\.claude\skills\seeda-chatgpt-images-2-launcher"
+Get-ChildItem "$env:USERPROFILE\.codex\skills\seeda-chatgpt-images-2-launcher"
 ```
+
+## Update
+
+If installed with `git clone`:
+
+### macOS/Linux
+
+```bash
+git -C ~/.claude/skills/seeda-chatgpt-images-2-launcher pull
+git -C ~/.codex/skills/seeda-chatgpt-images-2-launcher pull
+```
+
+### Windows (PowerShell)
+
+```powershell
+git -C "$env:USERPROFILE\.claude\skills\seeda-chatgpt-images-2-launcher" pull
+git -C "$env:USERPROFILE\.codex\skills\seeda-chatgpt-images-2-launcher" pull
+```
+
+Restart Claude Code and Codex after updating.
+
+## Uninstall
 
 ### macOS/Linux
 
 ```bash
 rm -rf ~/.claude/skills/seeda-chatgpt-images-2-launcher
 rm -rf ~/.codex/skills/seeda-chatgpt-images-2-launcher
+```
+
+### Windows (PowerShell)
+
+```powershell
+Remove-Item -Recurse -Force "$env:USERPROFILE\.claude\skills\seeda-chatgpt-images-2-launcher"
+Remove-Item -Recurse -Force "$env:USERPROFILE\.codex\skills\seeda-chatgpt-images-2-launcher"
 ```
