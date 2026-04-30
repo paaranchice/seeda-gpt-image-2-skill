@@ -1,6 +1,8 @@
-﻿# GPT Image 2 Launch Skill (Creator Funnel)
+﻿# GPT Image 2 Skill (Quick Launch Funnel)
 
 Move users from idea to generation in one trigger.
+
+Primary keyword focus: `gpt image 2 skill`.
 
 This skill is built for growth pages and campaign funnels where you want less friction and stronger action intent.
 

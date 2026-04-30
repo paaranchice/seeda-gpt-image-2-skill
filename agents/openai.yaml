@@ -1,4 +1,4 @@
 ﻿version: 1
-display_name: GPT Image 2 Quick Launch
-short_description: One-trigger launch skill for prompt-to-image and still-to-video start flows.
+display_name: GPT Image 2 Skill
+short_description: One-trigger launch skill for prompt-to-image and still-to-video starter workflows.
 default_prompt: Launch my GPT Image 2 creator workspace now.

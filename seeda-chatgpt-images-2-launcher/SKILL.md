@@ -7,11 +7,16 @@ description: Launch a GPT Image 2 creator workspace from chat in one step. Use w
 
 Turn generation intent into immediate action by opening the target creator workspace directly.
 
+## Launch Target
+
+When triggered, the skill opens this workspace in the default browser:
+
+- `https://seeda.app/chatgpt-images-2`
+
 ## Workflow
 
 1. Confirm user intent to start creation now.
-2. Open the target URL in default browser:
-   - `https://seeda.app/chatgpt-images-2`
+2. Open the launch target URL in the default browser.
 3. If asked, append UTM tracking parameters.
 4. Return the final opened URL.
 
