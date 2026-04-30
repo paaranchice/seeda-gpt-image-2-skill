@@ -1,39 +1,50 @@
-﻿# Seeda GPT Image 2 Launcher Skill
+﻿# GPT Image 2 Launch Skill (Creator Funnel)
 
-A lightweight skill for Claude Code and Codex that opens the Seedance ChatGPT Images 2 page:
+Move users from idea to generation in one trigger.
+
+This skill is built for growth pages and campaign funnels where you want less friction and stronger action intent.
+
+## Why it converts
+
+- One-step launch from chat to creation workspace
+- Prompt-first flow that encourages immediate experimentation
+- Still-first validation before spending on motion
+- Works in both Claude Code and Codex
+
+## What users feel
+
+- "I can start now"
+- "I do not need to figure out navigation"
+- "I can test ideas before committing credits"
+
+## Launch Target
+
+When triggered, the skill opens this workspace in the default browser:
 
 - https://seeda.app/chatgpt-images-2
 
-This repository is intended as a promotion and distribution entry for the landing page.
+## Best Trigger Phrases
 
-## Repository Contents
+- "Launch my image 2 workspace"
+- "Start prompt-to-image now"
+- "Open the still-to-video starter"
+- "Take me to gpt image 2 generator"
 
-- `SKILL.md`: trigger and execution instructions
-- `agents/openai.yaml`: skill UI metadata
-- `references/source-seeda-chatgpt-images-2.md`: source page snapshot used to shape messaging
-- `INSTALL.md`: install guide for Claude Code and Codex
+## Install
 
-## Quick Install
+1. Copy folder `seeda-chatgpt-images-2-launcher` into:
+   - `~/.claude/skills/`
+   - `~/.codex/skills/`
+2. Restart Claude Code and Codex.
 
-Copy this skill folder to both local skill directories:
+Full guide: `INSTALL.md`
 
-- Claude Code: `~/.claude/skills/`
-- Codex: `~/.codex/skills/`
+## Included Files
 
-Use folder name:
-
-- `seeda-chatgpt-images-2-launcher`
-
-Then restart both clients.
-
-See full instructions in `INSTALL.md`.
-
-## Usage Examples
-
-- "Open GPT Image 2 seeda page"
-- "Launch chatgpt images 2"
-- "Jump to https://seeda.app/chatgpt-images-2"
+- `seeda-chatgpt-images-2-launcher/SKILL.md`
+- `seeda-chatgpt-images-2-launcher/agents/openai.yaml`
+- `seeda-chatgpt-images-2-launcher/references/source-seeda-chatgpt-images-2.md`
 
 ## Disclaimer
 
-Seedance is an independent platform. This skill is an unofficial launcher workflow.
+This is an independent launcher skill and is not affiliated with OpenAI.
