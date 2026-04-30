@@ -28,6 +28,21 @@ This guide installs the same skill into:
 
 Assume skill folder name is `seeda-chatgpt-images-2-launcher`.
 
+### Quick Start (Exact Upstream Flow)
+
+Copy `seeda-chatgpt-images-2-launcher` into:
+
+- `~/.claude/skills/`
+- `~/.codex/skills/`
+
+Then restart Claude Code and Codex.
+
+This repository already contains that folder at:
+
+- `seeda-chatgpt-images-2-launcher/`
+
+If you cloned this repo, use that exact folder as the source.
+
 ### Windows (PowerShell)
 
 ```powershell
@@ -72,6 +87,14 @@ ls -la ~/.codex/skills/seeda-chatgpt-images-2-launcher
 ```
 
 Restart Claude Code and Codex after installation.
+
+### Restart Checklist (Detailed)
+
+1. Close all Claude Code windows and running sessions.
+2. Close all Codex windows and running sessions.
+3. Reopen Claude Code.
+4. Reopen Codex.
+5. Run a trigger phrase such as `Launch my GPT Image 2 workspace`.
 
 ## 5. Uninstall
 

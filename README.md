@@ -45,10 +45,53 @@ Based on the current page flow, users can:
 
 ## Install
 
-1. Copy `seeda-chatgpt-images-2-launcher` into:
-   - `~/.claude/skills/`
-   - `~/.codex/skills/`
-2. Restart Claude Code and Codex.
+Use the folder `seeda-chatgpt-images-2-launcher` from this repository.
+
+### Windows (PowerShell)
+
+```powershell
+# 1) Set your local repo path
+$RepoPath = "C:\path\to\gpt-image-2-skill"
+$SkillSource = Join-Path $RepoPath "seeda-chatgpt-images-2-launcher"
+
+# 2) Create destination folders if missing
+New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.claude\skills" | Out-Null
+New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.codex\skills" | Out-Null
+
+# 3) Copy skill into Claude Code and Codex
+Copy-Item -Recurse -Force $SkillSource "$env:USERPROFILE\.claude\skills\seeda-chatgpt-images-2-launcher"
+Copy-Item -Recurse -Force $SkillSource "$env:USERPROFILE\.codex\skills\seeda-chatgpt-images-2-launcher"
+
+# 4) Verify files exist
+Get-ChildItem "$env:USERPROFILE\.claude\skills\seeda-chatgpt-images-2-launcher"
+Get-ChildItem "$env:USERPROFILE\.codex\skills\seeda-chatgpt-images-2-launcher"
+```
+
+### macOS/Linux
+
+```bash
+# 1) Set your local repo path
+REPO_PATH="/path/to/gpt-image-2-skill"
+SKILL_SOURCE="$REPO_PATH/seeda-chatgpt-images-2-launcher"
+
+# 2) Create destination folders if missing
+mkdir -p ~/.claude/skills ~/.codex/skills
+
+# 3) Copy skill into Claude Code and Codex
+cp -R "$SKILL_SOURCE" ~/.claude/skills/seeda-chatgpt-images-2-launcher
+cp -R "$SKILL_SOURCE" ~/.codex/skills/seeda-chatgpt-images-2-launcher
+
+# 4) Verify files exist
+ls -la ~/.claude/skills/seeda-chatgpt-images-2-launcher
+ls -la ~/.codex/skills/seeda-chatgpt-images-2-launcher
+```
+
+### Restart (Required)
+
+1. Completely close Claude Code.
+2. Completely close Codex.
+3. Reopen both clients.
+4. Trigger with: `Launch my GPT Image 2 workspace`.
 
 Detailed guide: `INSTALL.md`
 
