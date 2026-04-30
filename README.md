@@ -45,24 +45,39 @@ Based on the current page flow, users can:
 
 ## Install
 
-Use the folder `seeda-chatgpt-images-2-launcher` from this repository.
+Create a local skill folder named `seeda-chatgpt-images-2-launcher` and copy these root items from this repo into it:
+
+- `SKILL.md`
+- `agents/`
+- `references/`
 
 ### Windows (PowerShell)
 
 ```powershell
 # 1) Set your local repo path
 $RepoPath = "C:\path\to\gpt-image-2-skill"
-$SkillSource = Join-Path $RepoPath "seeda-chatgpt-images-2-launcher"
+$SkillName = "seeda-chatgpt-images-2-launcher"
 
 # 2) Create destination folders if missing
 New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.claude\skills" | Out-Null
 New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.codex\skills" | Out-Null
 
-# 3) Copy skill into Claude Code and Codex
-Copy-Item -Recurse -Force $SkillSource "$env:USERPROFILE\.claude\skills\seeda-chatgpt-images-2-launcher"
-Copy-Item -Recurse -Force $SkillSource "$env:USERPROFILE\.codex\skills\seeda-chatgpt-images-2-launcher"
+# 3) Create target skill directories
+$CcTarget = Join-Path $env:USERPROFILE ".claude\skills\$SkillName"
+$CodexTarget = Join-Path $env:USERPROFILE ".codex\skills\$SkillName"
+New-Item -ItemType Directory -Force -Path $CcTarget | Out-Null
+New-Item -ItemType Directory -Force -Path $CodexTarget | Out-Null
 
-# 4) Verify files exist
+# 4) Copy root skill files into both targets
+Copy-Item -Force (Join-Path $RepoPath "SKILL.md") (Join-Path $CcTarget "SKILL.md")
+Copy-Item -Recurse -Force (Join-Path $RepoPath "agents") (Join-Path $CcTarget "agents")
+Copy-Item -Recurse -Force (Join-Path $RepoPath "references") (Join-Path $CcTarget "references")
+
+Copy-Item -Force (Join-Path $RepoPath "SKILL.md") (Join-Path $CodexTarget "SKILL.md")
+Copy-Item -Recurse -Force (Join-Path $RepoPath "agents") (Join-Path $CodexTarget "agents")
+Copy-Item -Recurse -Force (Join-Path $RepoPath "references") (Join-Path $CodexTarget "references")
+
+# 5) Verify files exist
 Get-ChildItem "$env:USERPROFILE\.claude\skills\seeda-chatgpt-images-2-launcher"
 Get-ChildItem "$env:USERPROFILE\.codex\skills\seeda-chatgpt-images-2-launcher"
 ```
@@ -72,16 +87,24 @@ Get-ChildItem "$env:USERPROFILE\.codex\skills\seeda-chatgpt-images-2-launcher"
 ```bash
 # 1) Set your local repo path
 REPO_PATH="/path/to/gpt-image-2-skill"
-SKILL_SOURCE="$REPO_PATH/seeda-chatgpt-images-2-launcher"
+SKILL_NAME="seeda-chatgpt-images-2-launcher"
 
 # 2) Create destination folders if missing
 mkdir -p ~/.claude/skills ~/.codex/skills
 
-# 3) Copy skill into Claude Code and Codex
-cp -R "$SKILL_SOURCE" ~/.claude/skills/seeda-chatgpt-images-2-launcher
-cp -R "$SKILL_SOURCE" ~/.codex/skills/seeda-chatgpt-images-2-launcher
+# 3) Create target skill directories
+mkdir -p ~/.claude/skills/$SKILL_NAME ~/.codex/skills/$SKILL_NAME
 
-# 4) Verify files exist
+# 4) Copy root skill files into both targets
+cp "$REPO_PATH/SKILL.md" ~/.claude/skills/$SKILL_NAME/SKILL.md
+cp -R "$REPO_PATH/agents" ~/.claude/skills/$SKILL_NAME/agents
+cp -R "$REPO_PATH/references" ~/.claude/skills/$SKILL_NAME/references
+
+cp "$REPO_PATH/SKILL.md" ~/.codex/skills/$SKILL_NAME/SKILL.md
+cp -R "$REPO_PATH/agents" ~/.codex/skills/$SKILL_NAME/agents
+cp -R "$REPO_PATH/references" ~/.codex/skills/$SKILL_NAME/references
+
+# 5) Verify files exist
 ls -la ~/.claude/skills/seeda-chatgpt-images-2-launcher
 ls -la ~/.codex/skills/seeda-chatgpt-images-2-launcher
 ```

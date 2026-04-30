@@ -26,48 +26,60 @@ This guide installs the same skill into:
 
 ## 3. Install by Copy (Recommended)
 
-Assume skill folder name is `seeda-chatgpt-images-2-launcher`.
+Assume target skill folder name is `seeda-chatgpt-images-2-launcher`.
 
 ### Quick Start (Exact Upstream Flow)
 
-Copy `seeda-chatgpt-images-2-launcher` into:
+Create a folder named `seeda-chatgpt-images-2-launcher` in both locations:
 
 - `~/.claude/skills/`
 - `~/.codex/skills/`
 
+Then copy these items from this repo root into that folder:
+
+- `SKILL.md`
+- `agents/`
+- `references/`
+
 Then restart Claude Code and Codex.
-
-This repository already contains that folder at:
-
-- `seeda-chatgpt-images-2-launcher/`
-
-If you cloned this repo, use that exact folder as the source.
 
 ### Windows (PowerShell)
 
 ```powershell
 $SkillName = "seeda-chatgpt-images-2-launcher"
-$RepoSkillPath = "C:\path\to\repo\$SkillName"
+$RepoPath = "C:\path\to\gpt-image-2-skill"
 
 $CcTarget = Join-Path $env:USERPROFILE ".claude\skills\$SkillName"
 $CodexTarget = Join-Path $env:USERPROFILE ".codex\skills\$SkillName"
 
-New-Item -ItemType Directory -Force -Path (Split-Path $CcTarget) | Out-Null
-New-Item -ItemType Directory -Force -Path (Split-Path $CodexTarget) | Out-Null
+New-Item -ItemType Directory -Force -Path $CcTarget | Out-Null
+New-Item -ItemType Directory -Force -Path $CodexTarget | Out-Null
 
-Copy-Item -Recurse -Force $RepoSkillPath $CcTarget
-Copy-Item -Recurse -Force $RepoSkillPath $CodexTarget
+Copy-Item -Force (Join-Path $RepoPath "SKILL.md") (Join-Path $CcTarget "SKILL.md")
+Copy-Item -Recurse -Force (Join-Path $RepoPath "agents") (Join-Path $CcTarget "agents")
+Copy-Item -Recurse -Force (Join-Path $RepoPath "references") (Join-Path $CcTarget "references")
+
+Copy-Item -Force (Join-Path $RepoPath "SKILL.md") (Join-Path $CodexTarget "SKILL.md")
+Copy-Item -Recurse -Force (Join-Path $RepoPath "agents") (Join-Path $CodexTarget "agents")
+Copy-Item -Recurse -Force (Join-Path $RepoPath "references") (Join-Path $CodexTarget "references")
 ```
 
 ### macOS/Linux
 
 ```bash
 SKILL_NAME="seeda-chatgpt-images-2-launcher"
-REPO_SKILL_PATH="/path/to/repo/$SKILL_NAME"
+REPO_PATH="/path/to/gpt-image-2-skill"
 
 mkdir -p ~/.claude/skills ~/.codex/skills
-cp -R "$REPO_SKILL_PATH" ~/.claude/skills/
-cp -R "$REPO_SKILL_PATH" ~/.codex/skills/
+mkdir -p ~/.claude/skills/$SKILL_NAME ~/.codex/skills/$SKILL_NAME
+
+cp "$REPO_PATH/SKILL.md" ~/.claude/skills/$SKILL_NAME/SKILL.md
+cp -R "$REPO_PATH/agents" ~/.claude/skills/$SKILL_NAME/agents
+cp -R "$REPO_PATH/references" ~/.claude/skills/$SKILL_NAME/references
+
+cp "$REPO_PATH/SKILL.md" ~/.codex/skills/$SKILL_NAME/SKILL.md
+cp -R "$REPO_PATH/agents" ~/.codex/skills/$SKILL_NAME/agents
+cp -R "$REPO_PATH/references" ~/.codex/skills/$SKILL_NAME/references
 ```
 
 ## 4. Verify
